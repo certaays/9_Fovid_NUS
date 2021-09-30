@@ -12,36 +12,70 @@
             margin: 100px 200px;
         }
         img{
-            height: 250px;
+            height: 350px;
             margin-right: 20px;
         }
-        nav{
+        .nav-our-challenge{
             margin-left: 20px;
         }
-        nav a{
+        .nav-a-our-challenge{
             padding-left: 20px;
             padding-right: 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 14pt;
+
         }
-        p{
+        #textContent{
           padding-left: 40px;           padding-right: 20px;  
+        }
+        .blue{
+            color: blue;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1 class="flexbox">Our Challenge</h1>
-    <!-- <h2>ISU</h2> -->
-    <p></p>
-    
     <div class="flexbox">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="image">
         <div>
-            <nav>
-                <a href="" >ISU</a>
-                <a href="">Permasalahan</a>
-                <a href="">Usaha dan Hambatan</a>
-                <a href="">Tujuan</a>
+            <nav class="nav-our-challenge">
+                <a href="" id="1" class="title-click nav-a-our-challenge blue" >ISU</a>
+                <a href="" id="2" class="title-click nav-a-our-challenge">Permasalahan</a>
+                <a href="" id="3" class="title-click nav-a-our-challenge">Usaha dan Hambatan</a>
+                <a href="" id="4" class="title-click nav-a-our-challenge">Tujuan</a>
             </nav>
-            <p>Pandemi telah menyebabkan hilangnya pekerjaan,kerawanan pangan, dampak negatif pada kualitas pendidikan dan kesejahteraan mental, ditambah dengan berbagai masalah domestik, terutama bagi keluarga berpenghasilan rendah.<br> PPKM yang konstan dan p. </p>
+            <p id="textContent">Pandemi telah menyebabkan hilangnya pekerjaan, kerawanan pangan, dampak negatif pada kualitas pendidikan dan kesejahteraan mental, ditambah dengan berbagai masalah domestik, terutama bagi keluarga berpenghasilan rendah. PPKM yang konstan dan pembatasan mobilitas telah meningkatkan situasi ini, mengakibatkan lebih banyak individu dan keluarga yang sangat membutuhkan bantuan. Namun, tidak ada platform/alat efektif yang tersedia bagi mereka untuk melaporkan dan meminta bantuan.</p>
     </div>
+
+    <script>
+        const isian = [
+            { desc: "Pandemi telah menyebabkan hilangnya pekerjaan, kerawanan pangan, dampak negatif pada kualitas pendidikan dan kesejahteraan mental, ditambah dengan berbagai masalah domestik, terutama bagi keluarga berpenghasilan rendah. PPKM yang konstan dan pembatasan mobilitas telah meningkatkan situasi ini, mengakibatkan lebih banyak individu dan keluarga yang sangat membutuhkan bantuan. Namun, tidak ada platform/alat efektif yang tersedia bagi mereka untuk melaporkan dan meminta bantuan. "},
+            { desc: "Ribuan individu dan keluarga berpenghasilan rendah di Indonesia (atau Asia Tenggara) di bawah dampak COVID-19 mencari bantuan setiap hari, baik secara ekonomi maupun emosional. Tetapi jalan untuk mengeluarkan suara terbatas. Dalam banyak kasus, hal ini tidak diperhatikan karena lokasi geografis, tidak dapat diaksesnya teknologi, alokasi sumber daya, atau tekanan dari keluarga."},
+            { desc: "Nomor saluran bantuan COVID-19 di berbagai negara adalah hal yang sangat berguna dengan hotline khusus untuk dihubungi, tetapi seringkali sibuk saat dihubungi. Saluran ini membutuhkan tim khusus untuk memantau terus menerus dan tidak dapat menyebarkan pesan SOS yang tersebar luas ke lingkungan yang lebih besar dan komunitas terdekat untuk memperoleh bantuan dari masyarakat yang saling berbagi dan kepedulian.cGerakan Bendera Putih di Malaysia: Gerakan ini meningkatkan kesadaran tetapi belum dapat ditingkatkan untuk skala yang lebih besar dan membutuhkan pemantauan fisik. Kamu diperbolehkan melakukan eksplorasi dan membuat asumsi sendiri di luar dari detail challenge yang diberikan. Sebagai contoh, jika challenge tidak menerangkan lebih detail mengenai target pengguna, maka kamu bisa asumsikan sendiri profil pengguna yang berpotensi menggunakan produk dari partner. Tidak hanya itu, kamu juga bisa bereksplorasi untuk menghasilkan flow produk digital yang lebih baik jika dibutuhkan."},
+            { desc: "Tujuan dari challenge ini diantaranya adalah sebagai berikut, "},
+    ]
+
+        const content = document.getElementsByClassName("title-click")
+
+        for(let i=0; i<content.length;i++){
+            content[i].addEventListener("click", event => {
+                event.preventDefault()
+            
+                let p = document.getElementById("textContent")
+                p.innerHTML = isian[i].desc
+                
+                for (let j=0; j<content.length;j++) {
+                    if(i==j){
+                        content[j].classList.add("blue") 
+                    }else{
+                        content[j].classList.remove("blue")
+                    }                 
+                }
+            })
+        }
+
+    </script>
 </body>
 </html>
